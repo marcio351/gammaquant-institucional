@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gamma Quant — Plataforma quantitativa de investimentos. Método estatístico, gestão de risco, engenharia aplicada ao mercado financeiro.">
+    <meta name="keywords" content="investimentos, quantitativo, trading, bolsa, opções, gestão de risco, volatilidade">
+    <meta name="author" content="Gamma Quant">
+    <meta property="og:title" content="Gamma Quant — Engenharia Aplicada ao Mercado">
+    <meta property="og:description" content="O mercado é volátil. Nós operamos com método. Plataforma quantitativa para investidores que buscam estrutura, probabilidade e consistência.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/og-image.png">
+    <title>Gamma Quant — Engenharia Aplicada ao Mercado Financeiro</title>
+
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- ============ NAVEGAÇÃO FIXA ============ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <img src="images/logo-white.svg" alt="Gamma Quant" class="logo-img">
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#metodo" class="nav-link">Método</a></li>
+                <li><a href="#plataforma" class="nav-link">Plataforma</a></li>
+                <li><a href="#para-quem" class="nav-link">Para Quem</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="https://portal.gammaquant.com.br/gammaquant-new" class="btn btn-nav" target="_blank" rel="noopener">Área do Investidor</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="hero-grid"></div>
+            <div class="hero-glow"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">
+                    <span class="badge-dot"></span>
+                    PLATAFORMA QUANTITATIVA DE INVESTIMENTOS
+                </span>
+                <h1 class="hero-title">
+                    O mercado é volátil.<br>
+                    Nós operamos com <span class="text-orange">método</span>.
+                </h1>
+                <p class="hero-subtitle">
+                    A Gamma Quant é a única plataforma no Brasil que aplica engenharia financeira,
+                    modelagem estatística e gestão quantitativa de risco para transformar
+                    volatilidade em oportunidade calculada.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contato" class="btn btn-primary">
+                        Quero conhecer a plataforma
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="#metodo" class="btn btn-secondary">Entender o método</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">Método estatístico</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <div class="stat-value">24/7</div>
+                        <div class="stat-label">Operação automatizada</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Operação por emoção</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>SCROLL</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ============ FAIXA DE VALORES ============ -->
+    <section class="values-bar">
+        <div class="container">
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-number">01</div>
+                    <div class="value-text">Racionalidade<br>acima da emoção</div>
+                </div>
+                <div class="value-item">
+                    <div class="value-number">02</div>
+                    <div class="value-text">Método<br>acima da intuição</div>
+                </div>
+                <div class="value-item">
+                    <div class="value-number">03</div>
+                    <div class="value-text">Estrutura<br>acima do improviso</div>
+                </div>
+                <div class="value-item">
+                    <div class="value-number">04</div>
+                    <div class="value-text">Gestão de risco<br>acima do ganho imediato</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ MÉTODO ============ -->
+    <section class="section" id="metodo">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">NOSSO MÉTODO</span>
+                <h2 class="section-title">
+                    Não operamos opinião.<br>
+                    <span class="text-orange">Operamos probabilidade.</span>
+                </h2>
+                <p class="section-description">
+                    Enquanto a maioria reage ao mercado, a Gamma Quant modela o mercado.
+                    Transformamos desequilíbrio temporário em oportunidade calculada.
+                </p>
+            </div>
+
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M8 40V20L24 8l16 12v20" stroke="#f58a00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M18 40V28h12v12" stroke="#f58a00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="24" cy="20" r="2" fill="#f58a00"/>
+                        </svg>
+                    </div>
+                    <h3>Convergência Estatística</h3>
+                    <p>Identificamos padrões matematicamente previsíveis dentro do caos aparente do mercado. Pair trading, retorno à média e ciclos quantitativos compõem nossa matéria-prima.</p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="18" stroke="#f58a00" stroke-width="2"/>
+                            <path d="M24 6v36M6 24h36" stroke="#f58a00" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="32" cy="16" r="3" fill="#f58a00"/>
+                        </svg>
+                    </div>
+                    <h3>Assimetria Favorável</h3>
+                    <p>Cada operação é executada apenas quando o modelo identifica assimetria matemática favorável. Nunca entramos por intuição — só por vantagem estatística quantificada.</p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="8" y="8" width="32" height="32" rx="4" stroke="#f58a00" stroke-width="2"/>
+                            <path d="M14 30l6-8 6 4 8-12" stroke="#f58a00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="34" cy="14" r="2" fill="#f58a00"/>
+                        </svg>
+                    </div>
+                    <h3>Volatilidade Modelada</h3>
+                    <p>Volatilidade não é inimiga — é matéria-prima. Nossa plataforma trata volatilidade com regra, modelo e gestão de risco. Não reativamente. Estruturalmente.</p>
+                </div>
+            </div>
+
+            <div class="method-quote">
+                <blockquote>
+                    "Transformamos desequilíbrio temporário em oportunidade calculada.
+                    O mercado oscila. A matemática organiza."
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PLATAFORMA ============ -->
+    <section class="section section-dark" id="plataforma">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">A PLATAFORMA</span>
+                <h2 class="section-title">
+                    Engenharia financeira aplicada.<br>
+                    <span class="text-orange">Pronta para operar.</span>
+                </h2>
+                <p class="section-description">
+                    Construída sobre anos de pesquisa quantitativa, a Gamma Quant é uma das
+                    poucas plataformas no mundo com tecnologia baseada em investimento quantitativo.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-num">01</div>
+                    <h3>Construtor de Regras Visuais</h3>
+                    <p>Crie suas próprias estratégias quantitativas sem escrever uma linha de código. Interface visual para montar lógicas matemáticas complexas.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-num">02</div>
+                    <h3>Simulador de Backtesting</h3>
+                    <p>Valide suas estratégias contra dados históricos reais antes de arriscar capital. Análise estatística completa de cada operação simulada.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-num">03</div>
+                    <h3>Execução Automatizada</h3>
+                    <p>Integração nativa com robôs de execução (BLK, PNT, Flexscan). Sua estratégia opera 24/7, sem precisar ficar travado na tela.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-num">04</div>
+                    <h3>Análise de Risco em Tempo Real</h3>
+                    <p>Dashboard com drawdown, VaR, Sharpe ratio e métricas institucionais. Você enxerga seu risco como um gestor profissional enxerga.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-num">05</div>
+                    <h3>Proteção Quantitativa</h3>
+                    <p>Stops dinâmicos baseados em volatilidade real, não em percentuais arbitrários. Gestão de risco ajustada à estrutura de cada ativo.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-num">06</div>
+                    <h3>Dados Adaptativos</h3>
+                    <p>Modelos recalibrados automaticamente conforme o mercado muda de regime. Sem parâmetros fixos que envelhecem junto com os dados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PARA QUEM ============ -->
+    <section class="section" id="para-quem">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">PARA QUEM É</span>
+                <h2 class="section-title">
+                    Você não precisa ser trader.<br>
+                    <span class="text-orange">Precisa querer operar com inteligência.</span>
+                </h2>
+            </div>
+
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <div class="audience-icon">01</div>
+                    <h3>Investidor Experiente</h3>
+                    <p>Já opera bolsa há algum tempo e quer escalar resultados com método, não com achismo.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">02</div>
+                    <h3>Profissional Sem Tempo</h3>
+                    <p>Não pode ficar grudado na tela o dia inteiro e precisa de um sistema que opere por método.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">03</div>
+                    <h3>Quem Cansou do Improviso</h3>
+                    <p>Já tentou cursos intermináveis, sinais e comunidades. Quer um sistema estruturado, não mais ruído.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">04</div>
+                    <h3>Mente Analítica</h3>
+                    <p>Tem formação ou perfil técnico e valoriza decisões baseadas em dados, não em opinião.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ NARRATIVA ============ -->
+    <section class="narrative">
+        <div class="container">
+            <div class="narrative-content">
+                <div class="narrative-symbol">γ</div>
+                <h2 class="narrative-title">
+                    "Enquanto muitos operam impulso,<br>
+                    <span class="text-orange">nós operamos probabilidade.</span>"
+                </h2>
+                <p class="narrative-text">
+                    A Gamma Quant não é curso. Não é sinal. Não é comunidade de especulação.<br>
+                    É plataforma quantitativa. Sistema estruturado. Engenharia aplicada ao mercado.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FORMULÁRIO DE LEAD ============ -->
+    <section class="section section-form" id="contato">
+        <div class="container">
+            <div class="form-wrapper">
+                <div class="form-info">
+                    <span class="section-label">FALE COM A GAMMA QUANT</span>
+                    <h2 class="section-title">
+                        Comece com <span class="text-orange">estrutura.</span>
+                    </h2>
+                    <p class="form-description">
+                        Receba acesso à apresentação institucional da plataforma e conheça
+                        como investidores experientes estão operando com método quantitativo.
+                    </p>
+                    <ul class="form-benefits">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f58a00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Apresentação institucional completa
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f58a00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Demonstração da plataforma ao vivo
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f58a00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Acesso à equipe de atendimento especializado
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="form-card">
+                    <h3 class="form-title">Preencha para receber acesso</h3>
+                    <form id="leadForm" class="lead-form">
+                        <div class="form-group">
+                            <label for="nome">Nome completo</label>
+                            <input type="text" id="nome" name="nome" required placeholder="Seu nome completo">
+                        </div>
+                        <div class="form-group">
+                            <label for="whatsapp">WhatsApp</label>
+                            <input type="tel" id="whatsapp" name="whatsapp" required placeholder="(21) 99999-9999">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="perfil">Qual seu nível atual no mercado?</label>
+                            <select id="perfil" name="perfil" required>
+                                <option value="">Selecione seu perfil</option>
+                                <option value="iniciante">Ainda não invisto, mas quero começar</option>
+                                <option value="iniciante-bolsa">Invisto há menos de 1 ano na bolsa</option>
+                                <option value="intermediario">Invisto na bolsa entre 1 e 3 anos</option>
+                                <option value="experiente">Invisto há mais de 3 anos</option>
+                                <option value="profissional">Opero profissionalmente ou tenho formação em finanças</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-form">
+                            Quero conhecer a Gamma Quant
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <p class="form-privacy">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l9 4v6c0 5-4 9-9 10-5-1-9-5-9-10V6l9-4z" stroke="currentColor" stroke-width="2"/></svg>
+                            Seus dados estão protegidos pela LGPD
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="cta-final">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">
+                    Pronto para operar<br>
+                    com <span class="text-orange">engenharia?</span>
+                </h2>
+                <p class="cta-subtitle">
+                    Acesse a plataforma completa e comece a operar com método quantitativo hoje.
+                </p>
+                <a href="https://portal.gammaquant.com.br/gammaquant-new" class="btn btn-primary btn-large" target="_blank" rel="noopener">
+                    Conhecer a Plataforma
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <p class="cta-note">Teste 21 dias sem riscos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand">
+                    <img src="images/logo-white.svg" alt="Gamma Quant" class="footer-logo">
+                    <p>Engenharia financeira aplicada ao mercado. Método estatístico, gestão de risco e consistência no longo prazo.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Plataforma</h4>
+                    <ul>
+                        <li><a href="#metodo">Método</a></li>
+                        <li><a href="#plataforma">Funcionalidades</a></li>
+                        <li><a href="#para-quem">Para quem é</a></li>
+                        <li><a href="https://portal.gammaquant.com.br/gammaquant-new" target="_blank" rel="noopener">Área do Investidor</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="https://wa.me/5521990089490" target="_blank" rel="noopener">WhatsApp: 21 99008-9490</a></li>
+                        <li><a href="#contato">Fale conosco</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Institucional</h4>
+                    <ul>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">LGPD</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-disclaimer">
+                    <p><strong>Aviso importante:</strong> Investimentos envolvem riscos e podem causar perdas financeiras, inclusive superiores ao capital investido. Rentabilidade passada não representa garantia de rentabilidade futura. A Gamma Quant é uma plataforma tecnológica de análise quantitativa — as decisões de investimento são de responsabilidade exclusiva do usuário. Este site tem caráter exclusivamente informativo e educacional e não constitui recomendação de investimento. Dados protegidos pela LGPD (Lei Geral de Proteção de Dados).</p>
+                </div>
+                <div class="footer-copy">
+                    <p>© 2026 Gamma Quant. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ WHATSAPP FLUTUANTE ============ -->
+    <a href="https://wa.me/5521990089490?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20a%20Gamma%20Quant" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Atendimento Gamma Quant">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span class="whatsapp-text">Fale com a gente</span>
+    </a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

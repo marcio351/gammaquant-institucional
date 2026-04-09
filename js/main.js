@@ -1,0 +1,297 @@
+/* ============================================
+   GAMMA QUANT — SCRIPT PRINCIPAL
+   Navegação, Form, Scroll, Animações
+   ============================================ */
+
+(function() {
+    'use strict';
+
+    // ========== NAVBAR SCROLL ==========
+    const navbar = document.getElementById('navbar');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
+
+    function handleScroll() {
+        // Navbar background on scroll
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+
+        // Active link highlight based on scroll position
+        const scrollPos = window.scrollY + 120;
+        sections.forEach(section => {
+            const top = section.offsetTop;
+            const bottom = top + section.offsetHeight;
+            const id = section.getAttribute('id');
+            const link = document.querySelector(`.nav-link[href="#${id}"]`);
+
+            if (link) {
+                if (scrollPos >= top && scrollPos < bottom) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            }
+        });
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    // ========== MOBILE MENU ==========
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // ========== SMOOTH SCROLL ==========
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                const navHeight = navbar.offsetHeight;
+                const targetPos = target.offsetTop - navHeight;
+
+                window.scrollTo({
+                    top: targetPos,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // ========== WHATSAPP MASK ==========
+    const whatsappInput = document.getElementById('whatsapp');
+    if (whatsappInput) {
+        whatsappInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+
+            if (value.length > 11) value = value.slice(0, 11);
+
+            if (value.length > 10) {
+                value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+            } else if (value.length > 6) {
+                value = value.replace(/(\d{2})(\d{4,5})(\d{0,4})/, '($1) $2-$3');
+            } else if (value.length > 2) {
+                value = value.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+            } else if (value.length > 0) {
+                value = value.replace(/(\d{0,2})/, '($1');
+            }
+
+            e.target.value = value;
+        });
+    }
+
+    // ========== FORM SUBMISSION ==========
+    const leadForm = document.getElementById('leadForm');
+
+    if (leadForm) {
+        leadForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                nome: document.getElementById('nome').value.trim(),
+                whatsapp: document.getElementById('whatsapp').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                perfil: document.getElementById('perfil').value,
+                timestamp: new Date().toISOString(),
+                origem: 'site-institucional-gammaquant'
+            };
+
+            // Validação básica
+            if (!formData.nome || !formData.whatsapp || !formData.email || !formData.perfil) {
+                showNotification('Por favor, preencha todos os campos.', 'error');
+                return;
+            }
+
+            if (!isValidEmail(formData.email)) {
+                showNotification('Por favor, insira um e-mail válido.', 'error');
+                return;
+            }
+
+            const phoneDigits = formData.whatsapp.replace(/\D/g, '');
+            if (phoneDigits.length < 10 || phoneDigits.length > 11) {
+                showNotification('Por favor, insira um WhatsApp válido.', 'error');
+                return;
+            }
+
+            // Loading state
+            const submitBtn = leadForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Enviando...';
+
+            // ==========================================
+            // SUBSTITUIR PELA INTEGRAÇÃO REAL (N8N/API)
+            // ==========================================
+            // Exemplo de integração com webhook:
+            //
+            // fetch('https://n8n.gammaquant.com.br/webhook/lead-institucional', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(formData)
+            // })
+            // .then(res => res.json())
+            // .then(data => {
+            //     handleSuccess();
+            // })
+            // .catch(err => {
+            //     handleError(err);
+            // });
+
+            // Por enquanto, simula envio + redireciona para WhatsApp
+            setTimeout(() => {
+                console.log('Lead capturado:', formData);
+
+                // Salvar localmente como backup
+                try {
+                    const leads = JSON.parse(localStorage.getItem('gammaquant_leads') || '[]');
+                    leads.push(formData);
+                    localStorage.setItem('gammaquant_leads', JSON.stringify(leads));
+                } catch (e) {
+                    console.warn('LocalStorage indisponível');
+                }
+
+                handleSuccess();
+            }, 1200);
+
+            function handleSuccess() {
+                showNotification('✓ Cadastro recebido! Em instantes entraremos em contato.', 'success');
+                leadForm.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+
+                // Redireciona para WhatsApp com mensagem pré-pronta após 2s
+                setTimeout(() => {
+                    const msg = encodeURIComponent(
+                        `Olá! Meu nome é ${formData.nome}. Acabei de me cadastrar no site e gostaria de conhecer a Gamma Quant. Meu perfil: ${getPerfilLabel(formData.perfil)}`
+                    );
+                    window.open(`https://wa.me/5521990089490?text=${msg}`, '_blank');
+                }, 2000);
+            }
+        });
+    }
+
+    function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function getPerfilLabel(value) {
+        const labels = {
+            'iniciante': 'Ainda não invisto',
+            'iniciante-bolsa': 'Invisto há menos de 1 ano',
+            'intermediario': 'Invisto entre 1 e 3 anos',
+            'experiente': 'Invisto há mais de 3 anos',
+            'profissional': 'Profissional / formação em finanças'
+        };
+        return labels[value] || value;
+    }
+
+    // ========== NOTIFICATION ==========
+    function showNotification(message, type = 'info') {
+        const existing = document.querySelector('.gq-notification');
+        if (existing) existing.remove();
+
+        const notification = document.createElement('div');
+        notification.className = `gq-notification gq-notification-${type}`;
+        notification.textContent = message;
+
+        Object.assign(notification.style, {
+            position: 'fixed',
+            top: '100px',
+            right: '24px',
+            padding: '16px 24px',
+            borderRadius: '12px',
+            fontSize: '14px',
+            fontWeight: '600',
+            zIndex: '9999',
+            maxWidth: '360px',
+            boxShadow: '0 20px 50px rgba(0, 0, 0, 0.4)',
+            transform: 'translateX(400px)',
+            transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+            fontFamily: 'Montserrat, sans-serif',
+            border: '1px solid'
+        });
+
+        if (type === 'success') {
+            notification.style.background = 'linear-gradient(135deg, #0f2f1a, #1a3a25)';
+            notification.style.color = '#4ade80';
+            notification.style.borderColor = '#16a34a';
+        } else if (type === 'error') {
+            notification.style.background = 'linear-gradient(135deg, #2f0f0f, #3a1a1a)';
+            notification.style.color = '#f87171';
+            notification.style.borderColor = '#dc2626';
+        } else {
+            notification.style.background = 'linear-gradient(135deg, #1a1a1a, #2a2a2a)';
+            notification.style.color = '#f58a00';
+            notification.style.borderColor = '#f58a00';
+        }
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+        }, 10);
+
+        setTimeout(() => {
+            notification.style.transform = 'translateX(400px)';
+            setTimeout(() => notification.remove(), 400);
+        }, 5000);
+    }
+
+    // ========== REVEAL ON SCROLL ==========
+    const revealElements = document.querySelectorAll(
+        '.pillar-card, .feature-card, .audience-card, .section-header, .form-card, .form-info, .method-quote'
+    );
+
+    revealElements.forEach(el => el.classList.add('reveal'));
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -60px 0px'
+        });
+
+        revealElements.forEach(el => observer.observe(el));
+    } else {
+        revealElements.forEach(el => el.classList.add('visible'));
+    }
+
+    // ========== CONSOLE BRAND ==========
+    console.log(
+        '%c GAMMA QUANT ',
+        'background: #f58a00; color: #000; font-size: 20px; font-weight: 900; padding: 8px 16px; border-radius: 4px;'
+    );
+    console.log(
+        '%c Engenharia Aplicada ao Mercado Financeiro ',
+        'color: #f58a00; font-size: 13px; font-weight: 600;'
+    );
+    console.log(
+        '%c O mercado é volátil. Nós operamos com método. ',
+        'color: #888; font-size: 11px; font-style: italic;'
+    );
+
+})();
