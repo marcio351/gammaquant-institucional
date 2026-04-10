@@ -23,8 +23,12 @@
     <!-- ============ NAVEGAÇÃO FIXA ============ -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">
-                <img src="images/logo-white.svg" alt="Gamma Quant" class="logo-img">
+            <a href="#home" class="nav-logo" aria-label="Gamma Quant">
+                <img src="images/logo-symbol.png" alt="" class="logo-symbol">
+                <span class="logo-text">
+                    <span class="logo-gamma">Gamma</span>
+                    <span class="logo-quant">Quant</span>
+                </span>
             </a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Início</a></li>
@@ -93,6 +97,56 @@
         <div class="hero-scroll">
             <span>SCROLL</span>
             <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ============ DEMONSTRAÇÃO DA PLATAFORMA ============ -->
+    <section class="platform-showcase">
+        <div class="container">
+            <div class="showcase-header">
+                <span class="section-label">A PLATAFORMA EM AÇÃO</span>
+                <h2 class="section-title">
+                    Cada operação com <span class="text-orange">método estatístico</span>.<br>
+                    Nenhuma por intuição.
+                </h2>
+                <p class="section-description">
+                    Nossa interface mostra cada operação executada pelo modelo quantitativo:
+                    duração, P&L, margem e régua de risco — tudo em tempo real, com transparência total.
+                </p>
+            </div>
+
+            <div class="browser-mockup">
+                <div class="browser-bar">
+                    <div class="browser-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="browser-url">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5z" stroke="#f58a00" stroke-width="2"/><path d="M12 22V12M4 7l8 5 8-5" stroke="#f58a00" stroke-width="2"/></svg>
+                        portal.gammaquant.com.br
+                    </div>
+                    <div class="browser-actions"></div>
+                </div>
+                <div class="browser-content">
+                    <img src="images/dashboard-preview.jpeg" alt="Dashboard Gamma Quant mostrando lista de operações encerradas com P&L, duração, margem e régua de risco" class="dashboard-img">
+                </div>
+            </div>
+
+            <div class="showcase-highlights">
+                <div class="highlight-item">
+                    <div class="highlight-value">100%</div>
+                    <div class="highlight-label">Operações auditáveis</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-value">Tempo real</div>
+                    <div class="highlight-label">P&L e gestão de risco</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-value">Backtestado</div>
+                    <div class="highlight-label">Antes de ir ao mercado</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -379,7 +433,13 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col footer-brand">
-                    <img src="images/logo-white.svg" alt="Gamma Quant" class="footer-logo">
+                    <a href="#home" class="footer-logo-link" aria-label="Gamma Quant">
+                        <img src="images/logo-symbol.png" alt="" class="footer-logo-symbol">
+                        <span class="footer-logo-text">
+                            <span class="logo-gamma">Gamma</span>
+                            <span class="logo-quant">Quant</span>
+                        </span>
+                    </a>
                     <p>Engenharia financeira aplicada ao mercado. Método estatístico, gestão de risco e consistência no longo prazo.</p>
                 </div>
 
