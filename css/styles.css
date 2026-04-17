@@ -455,33 +455,6 @@ button {
     background: var(--border);
 }
 
-.hero-scroll {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: var(--gray-500);
-    animation: fadeIn 1s ease 1s both;
-}
-
-.scroll-line {
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, var(--orange), transparent);
-    animation: scrollDown 2s ease-in-out infinite;
-}
-
-@keyframes scrollDown {
-    0%, 100% { transform: scaleY(0.3); transform-origin: top; }
-    50% { transform: scaleY(1); transform-origin: top; }
-}
-
 @keyframes fadeInUp {
     from {
         opacity: 0;
