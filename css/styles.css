@@ -421,10 +421,11 @@ button {
 .hero-stats {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 28px;
     padding-top: 40px;
     border-top: 1px solid var(--border);
     animation: fadeInUp 0.8s ease 0.4s both;
+    flex-wrap: wrap;
 }
 
 .stat {
@@ -433,12 +434,13 @@ button {
 }
 
 .stat-value {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 2.2vw, 2.1rem);
     font-weight: 800;
     color: var(--orange);
     line-height: 1;
     margin-bottom: 6px;
     font-family: var(--font-mono);
+    white-space: nowrap;
 }
 
 .stat-label {
@@ -1092,6 +1094,66 @@ button {
     font-size: 12px;
     color: var(--gray-500);
     margin-top: 12px;
+}
+
+/* ============ ÁREA DO ASSINANTE ============ */
+.subscriber-area {
+    padding: 80px 0;
+    background: var(--black);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.subscriber-card {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 48px;
+    background: linear-gradient(135deg, rgba(245, 138, 0, 0.08) 0%, rgba(245, 138, 0, 0.02) 100%);
+    border: 1px solid rgba(245, 138, 0, 0.25);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.subscriber-icon {
+    flex-shrink: 0;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(245, 138, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subscriber-text {
+    flex: 1;
+}
+
+.subscriber-title {
+    font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.25;
+    margin-top: 8px;
+}
+
+.subscriber-action {
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .subscriber-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 24px;
+        gap: 20px;
+    }
+
+    .subscriber-action .btn {
+        width: 100%;
+    }
 }
 
 /* ============ CTA FINAL ============ */
