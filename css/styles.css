@@ -572,10 +572,11 @@ button {
 /* ========== NOTEBOOK MOCKUP ========== */
 .laptop-stage {
     position: relative;
-    max-width: 1180px;
+    max-width: 1240px;
     margin: 0 auto;
-    padding: 40px 20px 80px;
-    perspective: 2200px;
+    padding: 60px 20px 120px;
+    perspective: 1600px;
+    perspective-origin: 50% 30%;
 }
 
 .laptop-ambient {
@@ -616,27 +617,37 @@ button {
     max-width: 1080px;
     margin: 0 auto;
     z-index: 1;
-    transform: rotateX(4deg);
     transform-style: preserve-3d;
-    animation: laptop-float 7s ease-in-out infinite;
+    transform: rotateX(14deg) rotateY(-10deg) rotateZ(0.5deg);
+    animation: laptop-float 8s ease-in-out infinite;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.laptop:hover {
+    transform: rotateX(10deg) rotateY(-6deg) rotateZ(0deg) translateY(-6px);
 }
 
 @keyframes laptop-float {
-    0%, 100% { transform: rotateX(4deg) translateY(0); }
-    50% { transform: rotateX(3deg) translateY(-8px); }
+    0%, 100% { transform: rotateX(14deg) rotateY(-10deg) rotateZ(0.5deg) translateY(0); }
+    50%      { transform: rotateX(13deg) rotateY(-9deg)  rotateZ(0.5deg) translateY(-10px); }
 }
 
 /* Tampa com tela */
 .laptop-lid {
     position: relative;
-    background: linear-gradient(to bottom, #1a1a1a 0%, #0a0a0a 100%);
+    background:
+        linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 40%),
+        linear-gradient(to bottom, #1a1a1a 0%, #0a0a0a 100%);
     border-radius: 18px 18px 4px 4px;
     padding: 22px 22px 32px;
+    transform: translateZ(20px);
     box-shadow:
+        0 60px 120px rgba(0, 0, 0, 0.75),
         0 40px 80px rgba(0, 0, 0, 0.55),
-        0 20px 40px rgba(245, 138, 0, 0.18),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.06),
-        inset 0 2px 0 rgba(255, 255, 255, 0.05);
+        0 25px 50px rgba(245, 138, 0, 0.22),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+        inset 0 2px 0 rgba(255, 255, 255, 0.06),
+        inset -2px 0 6px rgba(0, 0, 0, 0.5);
 }
 
 .laptop-bezel {
@@ -809,19 +820,21 @@ button {
 /* Base / deck do notebook */
 .laptop-base {
     position: relative;
-    width: 108%;
-    margin-left: -4%;
-    height: 22px;
-    transform: rotateX(-60deg);
+    width: 112%;
+    margin-left: -6%;
+    height: 34px;
+    transform: rotateX(-82deg) translateZ(-12px);
     transform-origin: top center;
-    background: linear-gradient(to bottom,
-        #2a2a2a 0%,
-        #1a1a1a 50%,
-        #0a0a0a 100%);
-    border-radius: 0 0 14px 14px;
+    background:
+        linear-gradient(to right, #0a0a0a 0%, #2a2a2a 15%, #333 50%, #2a2a2a 85%, #0a0a0a 100%),
+        linear-gradient(to bottom, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%);
+    background-blend-mode: multiply;
+    border-radius: 0 0 18px 18px;
     box-shadow:
-        0 30px 60px rgba(0, 0, 0, 0.7),
-        0 8px 20px rgba(245, 138, 0, 0.12);
+        0 50px 100px rgba(0, 0, 0, 0.85),
+        0 20px 40px rgba(0, 0, 0, 0.6),
+        0 10px 25px rgba(245, 138, 0, 0.15),
+        inset 0 2px 0 rgba(255, 255, 255, 0.08);
 }
 
 .laptop-hinge {
@@ -856,17 +869,21 @@ button {
     border-radius: 2px;
 }
 
-/* Reflexo embaixo */
+/* Reflexo/sombra embaixo */
 .laptop-reflection {
     position: absolute;
-    bottom: -40px;
-    left: 10%;
-    right: 10%;
-    height: 60px;
-    background: radial-gradient(ellipse at center,
-        rgba(245, 138, 0, 0.15) 0%,
-        rgba(245, 138, 0, 0) 70%);
-    filter: blur(20px);
+    bottom: -70px;
+    left: 5%;
+    right: 5%;
+    height: 100px;
+    background:
+        radial-gradient(ellipse at center,
+            rgba(0, 0, 0, 0.7) 0%,
+            rgba(0, 0, 0, 0.3) 40%,
+            rgba(245, 138, 0, 0.18) 55%,
+            rgba(245, 138, 0, 0) 80%);
+    filter: blur(25px);
+    transform: rotateX(80deg) translateZ(-20px);
     z-index: -1;
 }
 
@@ -1680,7 +1697,11 @@ button {
     }
 
     .laptop {
-        transform: rotateX(2deg);
+        transform: rotateX(8deg) rotateY(-5deg);
+        animation: none;
+    }
+    .laptop:hover {
+        transform: rotateX(6deg) rotateY(-3deg);
     }
 }
 
@@ -1714,8 +1735,11 @@ button {
     }
 
     .laptop {
-        transform: none;
+        transform: rotateX(4deg);
         animation: none;
+    }
+    .laptop:hover {
+        transform: rotateX(4deg);
     }
 
     .laptop-lid {
