@@ -137,39 +137,32 @@
             submitBtn.disabled = true;
             submitBtn.innerHTML = 'Enviando...';
 
-            // ==========================================
-            // SUBSTITUIR PELA INTEGRAÇÃO REAL (N8N/API)
-            // ==========================================
-            // Exemplo de integração com webhook:
-            //
-            // fetch('https://n8n.gammaquant.com.br/webhook/lead-institucional', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify(formData)
-            // })
-            // .then(res => res.json())
-            // .then(data => {
-            //     handleSuccess();
-            // })
-            // .catch(err => {
-            //     handleError(err);
-            // });
+            // Backup local (nao depende do CRM responder)
+            try {
+                const leads = JSON.parse(localStorage.getItem('gammaquant_leads') || '[]');
+                leads.push(formData);
+                localStorage.setItem('gammaquant_leads', JSON.stringify(leads));
+            } catch (e) {
+                // localStorage indisponivel — segue o fluxo
+            }
 
-            // Por enquanto, simula envio + redireciona para WhatsApp
-            setTimeout(() => {
-                console.log('Lead capturado:', formData);
-
-                // Salvar localmente como backup
-                try {
-                    const leads = JSON.parse(localStorage.getItem('gammaquant_leads') || '[]');
-                    leads.push(formData);
-                    localStorage.setItem('gammaquant_leads', JSON.stringify(leads));
-                } catch (e) {
-                    console.warn('LocalStorage indisponível');
+            fetch('/api/lead', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+            .then(async (res) => {
+                const data = await res.json().catch(() => ({}));
+                if (!res.ok) {
+                    throw new Error(data?.error || `Erro ${res.status}`);
                 }
-
                 handleSuccess();
-            }, 1200);
+            })
+            .catch((err) => {
+                // Fallback: mesmo se o CRM falhar, nao perde o lead — envia direto ao WhatsApp
+                console.warn('CRM falhou, redirecionando ao WhatsApp:', err?.message || err);
+                handleSuccess();
+            });
 
             function handleSuccess() {
                 showNotification('✓ Cadastro recebido! Em instantes entraremos em contato.', 'success');
