@@ -76,33 +76,9 @@
         });
     });
 
-    // ========== WHATSAPP MASK ==========
-    const whatsappInput = document.getElementById('whatsapp');
-    if (whatsappInput) {
-        whatsappInput.addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-
-            if (value.length > 11) value = value.slice(0, 11);
-
-            if (value.length > 10) {
-                value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
-            } else if (value.length > 6) {
-                value = value.replace(/(\d{2})(\d{4,5})(\d{0,4})/, '($1) $2-$3');
-            } else if (value.length > 2) {
-                value = value.replace(/(\d{2})(\d{0,5})/, '($1) $2');
-            } else if (value.length > 0) {
-                value = value.replace(/(\d{0,2})/, '($1');
-            }
-
-            e.target.value = value;
-        });
-    }
-
     // ========== FORM SUBMISSION ==========
-    // URL do Inbound Webhook do GoHighLevel / Full Stacky
-    // (configurada em Automation -> Workflows -> trigger "Inbound Webhook")
-    const GHL_WEBHOOK_URL = 'REPLACE_ME_WITH_GHL_WEBHOOK_URL';
-
+    // Formulario agora e um iframe embedado do Full Stacky (GoHighLevel)
+    // Submissao, validacao e redirect sao tratados pelo proprio iframe.
     const leadForm = document.getElementById('leadForm');
 
     if (leadForm) {

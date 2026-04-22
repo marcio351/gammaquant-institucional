@@ -1294,12 +1294,42 @@ button {
 }
 
 .form-card {
-    padding: 48px;
+    padding: 48px 48px 32px;
     background: var(--black-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
     position: relative;
+}
+
+/* Embed do formulario Full Stacky */
+.form-embed-wrap {
+    position: relative;
+    width: 100%;
+    min-height: 560px;
+    border-radius: var(--radius-md, 8px);
+    overflow: hidden;
+    background: transparent;
+}
+
+.form-embed-wrap iframe {
+    width: 100% !important;
+    min-height: 560px;
+    height: 100%;
+    border: none;
+    display: block;
+    background: transparent;
+    color-scheme: normal;
+}
+
+@media (max-width: 768px) {
+    .form-card {
+        padding: 32px 20px 24px;
+    }
+    .form-embed-wrap,
+    .form-embed-wrap iframe {
+        min-height: 620px;
+    }
 }
 
 .form-card::before {
