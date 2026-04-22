@@ -173,7 +173,9 @@
                 // Redireciona para WhatsApp com mensagem pré-pronta após 2s
                 setTimeout(() => {
                     const msg = encodeURIComponent(
-                        `Olá, meu nome é ${formData.nome} e quero saber mais sobre a Plataforma Gamma Quant. Meu perfil: ${getPerfilLabel(formData.perfil)}`
+                        `Olá, meu nome é ${formData.nome} e quero saber mais sobre a Plataforma Gamma Quant.\n\n` +
+                        `Meu perfil: ${getPerfilLabel(formData.perfil)}.\n\n` +
+                        `Já vou começar a ver o material aqui: https://portal.gammaquant.com.br/gammaquant-new`
                     );
                     window.open(`https://wa.me/5521990089490?text=${msg}`, '_blank');
                 }, 2000);
