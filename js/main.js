@@ -99,6 +99,10 @@
     }
 
     // ========== FORM SUBMISSION ==========
+    // URL do Inbound Webhook do GoHighLevel / Full Stacky
+    // (configurada em Automation -> Workflows -> trigger "Inbound Webhook")
+    const GHL_WEBHOOK_URL = 'REPLACE_ME_WITH_GHL_WEBHOOK_URL';
+
     const leadForm = document.getElementById('leadForm');
 
     if (leadForm) {
@@ -146,23 +150,41 @@
                 // localStorage indisponivel — segue o fluxo
             }
 
-            fetch('/api/lead', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
-            })
-            .then(async (res) => {
-                const data = await res.json().catch(() => ({}));
-                if (!res.ok) {
-                    throw new Error(data?.error || `Erro ${res.status}`);
-                }
+            // Monta payload do jeito que o GoHighLevel espera
+            const phoneDigitsClean = formData.whatsapp.replace(/\D/g, '');
+            const [firstName, ...lastParts] = formData.nome.split(' ');
+            const ghlPayload = {
+                first_name: firstName || formData.nome,
+                last_name: lastParts.join(' ').trim(),
+                full_name: formData.nome,
+                email: formData.email,
+                phone: phoneDigitsClean.startsWith('55')
+                    ? `+${phoneDigitsClean}`
+                    : `+55${phoneDigitsClean}`,
+                perfil: getPerfilLabel(formData.perfil),
+                perfil_code: formData.perfil,
+                origem: formData.origem,
+                etiqueta: 'PLATAFORMA',
+                timestamp: formData.timestamp
+            };
+
+            const webhookReady = GHL_WEBHOOK_URL && !GHL_WEBHOOK_URL.startsWith('REPLACE_ME');
+
+            if (webhookReady) {
+                fetch(GHL_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(ghlPayload)
+                })
+                .then(() => handleSuccess())
+                .catch((err) => {
+                    console.warn('CRM falhou, redirecionando ao WhatsApp:', err?.message || err);
+                    handleSuccess();
+                });
+            } else {
+                // Webhook ainda nao configurado — segue direto pro WhatsApp
                 handleSuccess();
-            })
-            .catch((err) => {
-                // Fallback: mesmo se o CRM falhar, nao perde o lead — envia direto ao WhatsApp
-                console.warn('CRM falhou, redirecionando ao WhatsApp:', err?.message || err);
-                handleSuccess();
-            });
+            }
 
             function handleSuccess() {
                 showNotification('✓ Cadastro recebido! Em instantes entraremos em contato.', 'success');
