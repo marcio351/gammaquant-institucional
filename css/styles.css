@@ -2128,3 +2128,161 @@ button {
         align-items: stretch;
     }
 }
+
+/* ============ PROTOCOLO GAMMA (DIÁRIO) ============ */
+.protocol-gamma {
+    padding: 56px 0 40px;
+    background: var(--black);
+}
+
+.protocol-card {
+    position: relative;
+    overflow: hidden;
+    padding: 44px 40px;
+    background:
+        radial-gradient(circle at 20% 0%, rgba(245, 138, 0, 0.18), transparent 60%),
+        linear-gradient(135deg, #141414 0%, #0a0a0a 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.protocol-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--orange), transparent);
+    opacity: 0.8;
+}
+
+.protocol-pulse-ring {
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 280px;
+    height: 280px;
+    border: 1px solid rgba(245, 138, 0, 0.18);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: protocolPulse 4s ease-in-out infinite;
+}
+
+@keyframes protocolPulse {
+    0%, 100% { transform: scale(1); opacity: 0.4; }
+    50% { transform: scale(1.08); opacity: 0.15; }
+}
+
+.protocol-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+    background: rgba(245, 138, 0, 0.08);
+    border: 1px solid rgba(245, 138, 0, 0.28);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--orange);
+}
+
+.protocol-live-dot {
+    width: 8px;
+    height: 8px;
+    background: #ff2d2d;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(255, 45, 45, 0.6);
+    animation: liveDot 1.5s ease-out infinite;
+}
+
+@keyframes liveDot {
+    0%   { box-shadow: 0 0 0 0 rgba(255, 45, 45, 0.6); }
+    70%  { box-shadow: 0 0 0 10px rgba(255, 45, 45, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 45, 45, 0); }
+}
+
+.protocol-label {
+    color: var(--white);
+}
+
+.protocol-date {
+    color: var(--gray-300);
+    border-left: 1px solid rgba(245, 138, 0, 0.3);
+    padding-left: 10px;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+}
+
+.protocol-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.protocol-subtitle {
+    max-width: 640px;
+    margin: 0 auto 32px;
+    font-size: 16px;
+    color: var(--gray-300);
+    line-height: 1.6;
+}
+
+.protocol-cta {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.protocol-cta .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.protocol-live-icon {
+    width: 10px;
+    height: 10px;
+    background: #ff2d2d;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(255, 45, 45, 0.9);
+}
+
+.protocol-foot {
+    font-size: 13px;
+    color: var(--gray-500);
+    font-style: italic;
+    margin: 0;
+}
+
+@media (max-width: 720px) {
+    .protocol-gamma {
+        padding: 40px 0 24px;
+    }
+    .protocol-card {
+        padding: 32px 24px;
+    }
+    .protocol-meta {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .protocol-cta {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .protocol-cta .btn {
+        justify-content: center;
+    }
+}

@@ -339,6 +339,40 @@
         link.addEventListener('click', () => fireContact('whatsapp'));
     });
 
+    // ========== PROTOCOLO GAMMA (diário) ==========
+    const protocolDateEl = document.getElementById('protocol-date');
+    const protocolVideoEl = document.getElementById('protocol-video-link');
+    const protocolPdfEl = document.getElementById('protocol-pdf-link');
+
+    if (protocolDateEl && protocolVideoEl && protocolPdfEl) {
+        fetch('protocolo.json?t=' + Date.now())
+            .then(r => r.ok ? r.json() : Promise.reject(r.status))
+            .then(data => {
+                const [y, m, d] = (data.date || '').split('-').map(Number);
+                const dt = (y && m && d) ? new Date(y, m - 1, d) : new Date();
+                const dow = dt.toLocaleDateString('pt-BR', { weekday: 'long' });
+                const formatted = dt.toLocaleDateString('pt-BR', {
+                    day: '2-digit', month: 'long', year: 'numeric'
+                });
+                protocolDateEl.textContent = `${dow.replace(/^./, c => c.toUpperCase())} · ${formatted}`;
+
+                if (data.videoUrl) {
+                    protocolVideoEl.href = data.videoUrl;
+                }
+                if (data.pdfFile) {
+                    protocolPdfEl.href = 'pdfs/' + data.pdfFile;
+                    protocolPdfEl.setAttribute('download', data.pdfFile);
+                }
+            })
+            .catch(err => {
+                console.warn('[Protocolo Gamma] Falha ao carregar protocolo.json:', err);
+                const today = new Date();
+                protocolDateEl.textContent = today.toLocaleDateString('pt-BR', {
+                    weekday: 'long', day: '2-digit', month: 'long', year: 'numeric'
+                });
+            });
+    }
+
     // ========== CONSOLE BRAND ==========
     console.log(
         '%c GAMMA QUANT ',
