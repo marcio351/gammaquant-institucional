@@ -273,6 +273,72 @@
         revealElements.forEach(el => el.classList.add('visible'));
     }
 
+    // ========== TRACKING (Meta Pixel + GA4) ==========
+    let checkoutFired = false;
+
+    function fireInitiateCheckout(source) {
+        if (checkoutFired) return;
+        checkoutFired = true;
+
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'InitiateCheckout', {
+                content_name: 'Plataforma Gamma Quant',
+                content_category: 'Form Access',
+                source: source
+            });
+        }
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'begin_checkout', {
+                source: source,
+                items: [{
+                    item_name: 'Plataforma Gamma Quant',
+                    item_category: 'Form Access'
+                }]
+            });
+        }
+        console.log('[GQ Tracking] InitiateCheckout →', source);
+    }
+
+    function fireContact(method) {
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'Contact', {
+                content_name: 'Gamma Quant',
+                content_category: method
+            });
+        }
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'contact', { method: method });
+        }
+        console.log('[GQ Tracking] Contact →', method);
+    }
+
+    // CTA → form (qualquer link/botão para #contato)
+    document.querySelectorAll('a[href="#contato"]').forEach(link => {
+        link.addEventListener('click', () => {
+            const label = (link.textContent || '').trim().slice(0, 50) || 'cta';
+            fireInitiateCheckout('cta:' + label);
+        });
+    });
+
+    // Fallback: usuário rolou até a seção do form
+    const formSection = document.getElementById('contato');
+    if (formSection && 'IntersectionObserver' in window) {
+        const formObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    fireInitiateCheckout('viewport');
+                    formObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        formObserver.observe(formSection);
+    }
+
+    // WhatsApp clicks
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+        link.addEventListener('click', () => fireContact('whatsapp'));
+    });
+
     // ========== CONSOLE BRAND ==========
     console.log(
         '%c GAMMA QUANT ',
