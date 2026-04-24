@@ -2267,6 +2267,61 @@ button {
     margin: 0;
 }
 
+.protocol-secondary-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-300);
+    padding: 10px 4px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid transparent;
+    transition: var(--transition);
+    letter-spacing: 0.2px;
+}
+
+.protocol-secondary-link:hover {
+    color: var(--orange);
+    border-bottom-color: rgba(245, 138, 0, 0.4);
+}
+
+.protocol-secondary-link svg {
+    flex-shrink: 0;
+}
+
+.protocol-disclaimer {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 14px 18px;
+    background: rgba(245, 138, 0, 0.05);
+    border: 1px solid rgba(245, 138, 0, 0.2);
+    border-left: 3px solid var(--orange);
+    border-radius: 8px;
+    text-align: left;
+}
+
+.protocol-disclaimer-icon {
+    font-size: 18px;
+    line-height: 1.4;
+    flex-shrink: 0;
+}
+
+.protocol-disclaimer-text {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--gray-300);
+}
+
+.protocol-disclaimer-text strong {
+    color: var(--orange);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
 @media (max-width: 720px) {
     .protocol-gamma {
         padding: 40px 0 24px;
@@ -2284,5 +2339,13 @@ button {
     }
     .protocol-cta .btn {
         justify-content: center;
+    }
+    .protocol-disclaimer {
+        flex-direction: column;
+        gap: 8px;
+        padding: 14px 16px;
+    }
+    .protocol-disclaimer-icon {
+        font-size: 20px;
     }
 }

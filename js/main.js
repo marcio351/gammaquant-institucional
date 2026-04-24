@@ -343,6 +343,7 @@
     const protocolDateEl = document.getElementById('protocol-date');
     const protocolVideoEl = document.getElementById('protocol-video-link');
     const protocolPdfEl = document.getElementById('protocol-pdf-link');
+    const protocolInstagramEl = document.getElementById('protocol-instagram-link');
 
     if (protocolDateEl && protocolVideoEl && protocolPdfEl) {
         fetch('protocolo.json?t=' + Date.now())
@@ -362,6 +363,14 @@
                 if (data.pdfFile) {
                     protocolPdfEl.href = 'pdfs/' + data.pdfFile;
                     protocolPdfEl.setAttribute('download', data.pdfFile);
+                }
+                if (protocolInstagramEl) {
+                    if (data.instagramUrl) {
+                        protocolInstagramEl.href = data.instagramUrl;
+                        protocolInstagramEl.style.display = '';
+                    } else {
+                        protocolInstagramEl.style.display = 'none';
+                    }
                 }
             })
             .catch(err => {
