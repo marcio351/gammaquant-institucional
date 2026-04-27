@@ -2349,3 +2349,421 @@ button {
         font-size: 20px;
     }
 }
+
+/* ============ NAVBAR — RENOVAR ============ */
+.nav-renew {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 14px;
+    margin-right: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-300);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    transition: var(--transition);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.nav-renew:hover {
+    color: var(--white);
+    border-color: var(--orange);
+    background: rgba(245, 138, 0, 0.06);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 920px) {
+    .nav-renew {
+        display: none;
+    }
+}
+
+/* ============ ESCOLA / CURSOS ============ */
+.escola-section {
+    background:
+        radial-gradient(circle at 80% 20%, rgba(245, 138, 0, 0.05), transparent 50%),
+        var(--black-soft);
+    padding: 100px 0 80px;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 56px;
+}
+
+.course-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--black-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: var(--transition);
+    color: var(--gray-100);
+    text-decoration: none;
+    height: 100%;
+}
+
+.course-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--border-hover);
+}
+
+.course-thumb {
+    position: relative;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.course-thumb::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(245, 138, 0, 0.18), transparent 60%);
+    pointer-events: none;
+}
+
+.course-thumb--1::after,
+.course-thumb--2::after,
+.course-thumb--3::after,
+.course-thumb--4::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(to right, rgba(245, 138, 0, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(245, 138, 0, 0.04) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.course-thumb svg {
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 4px 16px rgba(245, 138, 0, 0.4));
+}
+
+.course-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 3;
+    padding: 4px 10px;
+    background: var(--orange);
+    color: var(--black);
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.course-badge--free {
+    background: #16a34a;
+    color: var(--white);
+}
+
+.course-body {
+    padding: 24px 22px 26px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.course-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+}
+
+.course-desc {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--gray-300);
+    margin-bottom: 18px;
+    flex: 1;
+}
+
+.course-cta {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--orange);
+    letter-spacing: 0.3px;
+}
+
+.course-card:hover .course-cta {
+    color: var(--orange-hover);
+}
+
+.escola-foot {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gray-500);
+}
+
+/* ============ COMUNIDADE ============ */
+.comunidade-section {
+    padding: 100px 0 80px;
+    background: var(--black);
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin-top: 56px;
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.media-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 28px 26px;
+    background: var(--black-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    transition: var(--transition);
+    color: var(--gray-100);
+    text-decoration: none;
+}
+
+.media-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.media-icon {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--black-elevated);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+}
+
+.media-card--youtube:hover .media-icon {
+    border-color: rgba(255, 0, 0, 0.4);
+    background: rgba(255, 0, 0, 0.08);
+}
+
+.media-card--instagram:hover .media-icon {
+    border-color: rgba(221, 42, 123, 0.5);
+}
+
+.media-handle {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--orange);
+    letter-spacing: 0.5px;
+    text-transform: lowercase;
+}
+
+.media-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin: 6px 0 8px;
+    letter-spacing: -0.01em;
+}
+
+.media-desc {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--gray-300);
+    margin-bottom: 14px;
+}
+
+.media-cta {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--orange);
+    letter-spacing: 0.3px;
+}
+
+.media-card:hover .media-cta {
+    color: var(--orange-hover);
+}
+
+@media (max-width: 600px) {
+    .media-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* ============ RENOVAÇÃO DE ASSINATURA ============ */
+.renew-section {
+    padding: 40px 0;
+    background: var(--black);
+}
+
+.renew-card {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 36px;
+    background: linear-gradient(135deg, #0d2818 0%, #0a0a0a 100%);
+    border: 1px solid rgba(74, 222, 128, 0.18);
+    border-left: 3px solid #16a34a;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.renew-icon {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(245, 138, 0, 0.08);
+    border-radius: 14px;
+    border: 1px solid rgba(245, 138, 0, 0.25);
+}
+
+.renew-content {
+    flex: 1;
+}
+
+.renew-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #4ade80;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.renew-title {
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+}
+
+.renew-desc {
+    font-size: 13.5px;
+    color: var(--gray-300);
+    margin: 0;
+}
+
+.btn-renew {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 26px;
+    background: var(--orange);
+    color: var(--black);
+    border: 2px solid var(--orange);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    transition: var(--transition);
+    text-decoration: none;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+}
+
+.btn-renew:hover {
+    background: var(--orange-hover);
+    border-color: var(--orange-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px var(--orange-glow);
+}
+
+@media (max-width: 720px) {
+    .renew-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 22px;
+        gap: 16px;
+    }
+    .btn-renew {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ============ FOOTER — REDES SOCIAIS ============ */
+.footer-social {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: var(--black-elevated);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--gray-300);
+    transition: var(--transition);
+}
+
+.social-icon:hover {
+    color: var(--orange);
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+}
+
+.footer-grid {
+    grid-template-columns: 1.6fr repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
