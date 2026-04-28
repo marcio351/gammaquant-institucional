@@ -2797,3 +2797,231 @@ button {
         grid-template-columns: 1fr;
     }
 }
+
+/* ===================== MANUAL DA PLATAFORMA ===================== */
+.manual-section {
+    background:
+        radial-gradient(circle at 20% 30%, rgba(245, 138, 0, 0.08), transparent 55%),
+        radial-gradient(circle at 85% 75%, rgba(245, 138, 0, 0.04), transparent 50%),
+        #0a0a0a;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.manual-card {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(245, 138, 0, 0.04), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(245, 138, 0, 0.18);
+    border-radius: 20px;
+    padding: 56px;
+    position: relative;
+}
+
+.manual-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--orange), transparent);
+    opacity: 0.5;
+}
+
+.manual-content .section-label {
+    color: var(--orange);
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.manual-content .section-title {
+    margin-bottom: 24px;
+}
+
+.manual-content .section-description {
+    margin-bottom: 28px;
+}
+
+.manual-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.manual-bullets li {
+    position: relative;
+    padding-left: 28px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.manual-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 16px;
+    height: 8px;
+    border-left: 2px solid var(--orange);
+    border-bottom: 2px solid var(--orange);
+    transform: rotate(-45deg);
+}
+
+.manual-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+/* Mock document visual */
+.manual-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px;
+}
+
+.manual-doc {
+    width: 320px;
+    height: 420px;
+    background: linear-gradient(160deg, #1a1a1a, #0d0d0d);
+    border: 1px solid rgba(245, 138, 0, 0.25);
+    border-radius: 12px;
+    padding: 32px 28px;
+    position: relative;
+    transform: rotateY(-12deg) rotateX(4deg);
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(245, 138, 0, 0.05) inset,
+        -20px 20px 40px rgba(245, 138, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.4s ease;
+}
+
+.manual-doc::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--orange);
+    border-radius: 12px 12px 0 0;
+}
+
+.manual-doc:hover {
+    transform: rotateY(-6deg) rotateX(2deg) translateY(-4px);
+}
+
+.manual-doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+}
+
+.manual-doc-tag {
+    color: var(--orange);
+    font-weight: 600;
+}
+
+.manual-doc-title {
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 1.25;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.manual-doc-title strong {
+    color: var(--orange);
+    font-weight: 700;
+}
+
+.manual-doc-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.manual-doc-lines span {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
+}
+
+.manual-doc-lines span:nth-child(1) { width: 90%; }
+.manual-doc-lines span:nth-child(2) { width: 70%; }
+.manual-doc-lines span:nth-child(3) { width: 85%; }
+.manual-doc-lines span:nth-child(4) { width: 55%; }
+.manual-doc-lines span:nth-child(5) { width: 75%; }
+
+.manual-doc-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.45);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 14px;
+}
+
+.manual-gamma-symbol {
+    color: var(--orange);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+@media (max-width: 900px) {
+    .manual-card {
+        grid-template-columns: 1fr;
+        padding: 40px 28px;
+        gap: 40px;
+    }
+
+    .manual-visual {
+        order: -1;
+    }
+
+    .manual-doc {
+        width: 260px;
+        height: 360px;
+        padding: 24px 22px;
+        transform: rotateY(-8deg) rotateX(2deg);
+    }
+
+    .manual-doc-title {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 600px) {
+    .manual-section {
+        padding: 70px 0;
+    }
+
+    .manual-cta {
+        flex-direction: column;
+    }
+
+    .manual-cta .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
