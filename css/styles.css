@@ -1821,13 +1821,15 @@ button {
         top: var(--nav-height);
         left: 0;
         right: 0;
+        bottom: 0;
         flex-direction: column;
         background: var(--black);
-        padding: 30px 20px;
-        gap: 8px;
+        padding: 24px 20px;
+        gap: 4px;
         border-bottom: 1px solid var(--border);
         transform: translateX(100%);
         transition: var(--transition);
+        overflow-y: auto;
     }
 
     .nav-menu.active {
@@ -1844,8 +1846,36 @@ button {
         font-size: 16px;
     }
 
+    /* No mobile: nav-actions aparece DENTRO do menu hambúrguer (logo abaixo dos links) */
     .nav-actions {
+        position: fixed;
+        top: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
         display: none;
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px;
+        background: var(--black);
+        border-top: 1px solid var(--border);
+        z-index: 100;
+        transform: translateY(100%);
+        transition: var(--transition);
+    }
+
+    .nav-menu.active + .nav-actions {
+        display: flex;
+        transform: translateY(0);
+    }
+
+    .nav-actions .nav-renew,
+    .nav-actions .btn-nav {
+        width: 100%;
+        text-align: center;
+        padding: 14px 20px;
+        font-size: 15px;
+        justify-content: center;
     }
 
     .nav-toggle {

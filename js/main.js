@@ -48,13 +48,13 @@
         navMenu.classList.toggle('active');
     });
 
-    // Close mobile menu when clicking a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
+    // Close mobile menu when clicking a link OR action button
+    function closeMenu() {
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
+    navLinks.forEach(link => link.addEventListener('click', closeMenu));
+    document.querySelectorAll('.nav-actions a').forEach(btn => btn.addEventListener('click', closeMenu));
 
     // ========== SMOOTH SCROLL ==========
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
