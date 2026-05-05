@@ -62,6 +62,60 @@
 </head>
 <body>
 
+    <!-- ============ BANNER LANÇAMENTO APP (sticky topo) ============ -->
+    <div id="app-launch-bar" role="banner" aria-label="App Gamma Quant disponível">
+        <div class="alb-inner">
+            <span class="alb-pulse" aria-hidden="true"></span>
+            <span class="alb-msg">
+                <strong>NOVO:</strong>
+                <span class="alb-msg-full">App Gamma Quant no ar — instale em 30s na sua tela inicial. Push 5min antes da live.</span>
+                <span class="alb-msg-short">App Gamma Quant no ar — 30s na sua tela inicial.</span>
+            </span>
+            <a href="https://app.gammaquant.com.br/?utm_source=site&amp;utm_medium=top-banner&amp;utm_campaign=launch-app-may26"
+               class="alb-cta" target="_blank" rel="noopener">Instalar →</a>
+            <button type="button" class="alb-close" aria-label="Fechar aviso" onclick="closeLaunchBar()">×</button>
+        </div>
+    </div>
+    <style>
+        #app-launch-bar{position:sticky;top:0;z-index:1100;background:linear-gradient(90deg,#f58a00 0%,#ff9d1c 50%,#f58a00 100%);background-size:200% 100%;animation:albShine 6s linear infinite;color:#000;font-family:'Montserrat',sans-serif;box-shadow:0 2px 12px rgba(245,138,0,.35)}
+        @keyframes albShine{0%{background-position:0 0}100%{background-position:200% 0}}
+        .alb-inner{max-width:1200px;margin:0 auto;padding:11px 18px;display:flex;align-items:center;justify-content:center;gap:14px;font-weight:600;font-size:14.5px}
+        .alb-pulse{width:10px;height:10px;border-radius:50%;background:#000;display:inline-block;flex-shrink:0;box-shadow:0 0 0 0 rgba(0,0,0,.6);animation:albPulse 1.6s infinite}
+        @keyframes albPulse{0%{box-shadow:0 0 0 0 rgba(0,0,0,.5)}70%{box-shadow:0 0 0 10px rgba(0,0,0,0)}100%{box-shadow:0 0 0 0 rgba(0,0,0,0)}}
+        .alb-msg{flex:1;text-align:center;line-height:1.35}
+        .alb-msg strong{font-weight:800;letter-spacing:.5px}
+        .alb-msg-short{display:none}
+        .alb-cta{background:#000;color:#f58a00;padding:7px 16px;border-radius:5px;text-decoration:none;font-weight:800;white-space:nowrap;transition:transform .15s,background .15s;flex-shrink:0}
+        .alb-cta:hover{transform:translateY(-1px);background:#1a1a1a}
+        .alb-close{background:transparent;border:0;color:#000;font-size:22px;line-height:1;cursor:pointer;padding:0 6px;font-weight:300;flex-shrink:0;opacity:.7;transition:opacity .15s}
+        .alb-close:hover{opacity:1}
+        @media (max-width:768px){
+            .alb-inner{gap:10px;padding:9px 12px;font-size:13px}
+            .alb-msg-full{display:none}
+            .alb-msg-short{display:inline}
+            .alb-cta{padding:6px 12px;font-size:12.5px}
+        }
+        body.alb-hidden #app-launch-bar{display:none}
+    </style>
+    <script>
+        (function(){
+            if (document.cookie.indexOf('launchBarClosed=1') !== -1) {
+                document.body.classList.add('alb-hidden');
+            }
+        })();
+        function closeLaunchBar(){
+            document.body.classList.add('alb-hidden');
+            document.cookie='launchBarClosed=1;max-age=604800;path=/';
+            if(typeof gtag==='function'){gtag('event','app_banner_closed',{campaign:'launch-app-may26'});}
+        }
+    </script>
+
+    <style>
+        .nav-link-app{color:#f58a00!important;font-weight:700;position:relative}
+        .nav-link-app::after{content:"NOVO";position:absolute;top:-8px;right:-26px;background:#f58a00;color:#000;font-size:8.5px;padding:2px 5px;border-radius:3px;font-weight:800;letter-spacing:.5px}
+        @media (max-width:900px){.nav-link-app::after{right:auto;left:48px;top:-2px}}
+    </style>
+
     <!-- ============ NAVEGAÇÃO FIXA ============ -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -74,6 +128,7 @@
             </a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#app-launch" class="nav-link nav-link-app">📲 App</a></li>
                 <li><a href="#metodo" class="nav-link">Método</a></li>
                 <li><a href="#plataforma" class="nav-link">Plataforma</a></li>
                 <li><a href="#manual" class="nav-link">Manual</a></li>
@@ -148,6 +203,116 @@
             </div>
         </div>
     </section>
+
+    <!-- ============ APP LANÇAMENTO — HERO DEDICADO ============ -->
+    <section id="app-launch" class="app-launch-section">
+        <div class="container">
+            <div class="al-grid">
+                <div class="al-content">
+                    <span class="al-tag">🟧 NOVO · MAIO 2026</span>
+                    <h2 class="al-title">O Gamma agora cabe<br><span>na sua tela inicial.</span></h2>
+                    <p class="al-sub">App Gamma Quant — atalho oficial pro Protocolo diário, Plataforma, Apostila, Cursos e Utilitários. Instalação em 30 segundos. Push 5 min antes do Sergio entrar ao vivo. Sem Play Store, sem App Store, sem custo.</p>
+                    <ul class="al-bullets">
+                        <li><span>📱</span> Android · iPhone · PC · Mac · Linux — qualquer aparelho</li>
+                        <li><span>🚨</span> Push exclusivo da live diária 8h30</li>
+                        <li><span>📘</span> Apostila completa offline — 28 páginas</li>
+                        <li><span>🔄</span> Atualização automática invisível</li>
+                    </ul>
+                    <div class="al-bonus">
+                        🎁 <strong>Bônus até 11/05 · 23h59:</strong> Aula Mestre Sergio Ferro (R$ 297) liberada DENTRO do app — botão só acende pra quem instalar nos primeiros 7 dias.
+                    </div>
+                    <div class="al-actions">
+                        <a class="al-cta-primary" target="_blank" rel="noopener"
+                           href="https://app.gammaquant.com.br/?utm_source=site&amp;utm_medium=hero-section&amp;utm_campaign=launch-app-may26">
+                            🚀 Instalar em 30 segundos
+                        </a>
+                        <a class="al-cta-secondary" target="_blank" rel="noopener"
+                           href="https://app.gammaquant.com.br/como-instalar.html?utm_source=site&amp;utm_medium=hero-tutorial&amp;utm_campaign=launch-app-may26">
+                            📖 Ver tutorial
+                        </a>
+                    </div>
+                    <div class="al-meta">
+                        <span>⚡ 30s</span><span>·</span>
+                        <span>🆓 Grátis</span><span>·</span>
+                        <span>🚫 Sem loja</span><span>·</span>
+                        <span>📲 1 toque</span>
+                    </div>
+                </div>
+                <div class="al-visual">
+                    <div class="al-phone">
+                        <div class="al-phone-notch"></div>
+                        <div class="al-phone-screen">
+                            <div class="al-status-bar"><span>8:30</span><span>📶 🔋</span></div>
+                            <div class="al-app-grid">
+                                <div class="al-app-icon" style="background:#25D366">📞</div>
+                                <div class="al-app-icon" style="background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)">📷</div>
+                                <div class="al-app-icon" style="background:#1da1f2">𝕏</div>
+                                <div class="al-app-icon" style="background:#fff;color:#d4a017;font-family:Georgia,serif;font-size:34px;font-weight:900" id="alAppGamma">γ</div>
+                                <div class="al-app-icon" style="background:#0a66c2">in</div>
+                                <div class="al-app-icon" style="background:#FF0000">▶</div>
+                                <div class="al-app-icon" style="background:#1DB954">♫</div>
+                                <div class="al-app-icon" style="background:#000">📧</div>
+                                <div class="al-app-icon" style="background:#5865F2">💬</div>
+                                <div class="al-app-icon" style="background:#34c759">📱</div>
+                                <div class="al-app-icon" style="background:#007aff">✉️</div>
+                                <div class="al-app-icon" style="background:#ff3b30">📍</div>
+                            </div>
+                        </div>
+                        <div class="al-installed-badge">✓ INSTALADO</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .app-launch-section{background:linear-gradient(180deg,#000 0%,#0d0d0d 50%,#000 100%);padding:90px 0;border-top:3px solid #f58a00;position:relative;overflow:hidden}
+        .app-launch-section::before{content:"";position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(245,138,0,.12) 0%,transparent 70%);pointer-events:none}
+        .app-launch-section .container{position:relative;z-index:1}
+        .al-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:center}
+        .al-tag{display:inline-block;background:#f58a00;color:#000;padding:5px 14px;border-radius:5px;font-size:11px;font-weight:800;letter-spacing:1.5px;margin-bottom:18px}
+        .al-title{font-size:48px;line-height:1.05;margin:0 0 18px;color:#fff;font-weight:800;letter-spacing:-.5px}
+        .al-title span{color:#f58a00}
+        .al-sub{font-size:17px;line-height:1.6;color:#bbb;margin:0 0 26px;max-width:560px}
+        .al-bullets{list-style:none;padding:0;margin:0 0 24px}
+        .al-bullets li{display:flex;align-items:center;gap:12px;padding:8px 0;color:#e6e6e6;font-size:15px;line-height:1.4}
+        .al-bullets li span{font-size:20px;flex-shrink:0;width:28px;text-align:center}
+        .al-bonus{background:linear-gradient(135deg,rgba(245,138,0,.13),rgba(245,138,0,.05));border:1px solid rgba(245,138,0,.4);border-left:4px solid #f58a00;padding:14px 18px;border-radius:8px;color:#f58a00;font-size:14px;line-height:1.5;margin-bottom:26px}
+        .al-bonus strong{color:#fff}
+        .al-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:18px}
+        .al-cta-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#f58a00,#ff9d1c);color:#000;padding:16px 30px;border-radius:9px;text-decoration:none;font-weight:800;font-size:16px;transition:transform .15s,box-shadow .15s;box-shadow:0 10px 28px rgba(245,138,0,.4)}
+        .al-cta-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(245,138,0,.55)}
+        .al-cta-secondary{display:inline-flex;align-items:center;gap:8px;color:#f58a00;padding:16px 26px;border-radius:9px;text-decoration:none;font-weight:700;font-size:15px;border:2px solid #f58a00;transition:background .15s,color .15s}
+        .al-cta-secondary:hover{background:#f58a00;color:#000}
+        .al-meta{display:flex;flex-wrap:wrap;gap:10px;color:#888;font-size:13px;font-weight:600}
+        .al-meta span:nth-child(even){opacity:.4}
+        .al-visual{display:flex;justify-content:center;align-items:center;perspective:1400px}
+        .al-phone{position:relative;width:280px;height:560px;background:#000;border:9px solid #1a1a1a;border-radius:38px;box-shadow:0 40px 100px rgba(245,138,0,.35),inset 0 0 0 1px #2a2a2a;transform:rotateY(-14deg) rotateX(6deg) rotateZ(-2deg);transition:transform .6s}
+        .al-phone:hover{transform:rotateY(-8deg) rotateX(3deg) rotateZ(-1deg)}
+        .al-phone-notch{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:90px;height:22px;background:#000;border-radius:14px;z-index:2}
+        .al-phone-screen{width:100%;height:100%;background:linear-gradient(160deg,#1a1a2e,#0f0f1a);border-radius:30px;overflow:hidden;padding:48px 16px 16px;box-sizing:border-box}
+        .al-status-bar{display:flex;justify-content:space-between;color:#fff;font-size:12px;font-weight:700;padding:0 8px;margin-bottom:16px;opacity:.85}
+        .al-app-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+        .al-app-icon{aspect-ratio:1;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:800;opacity:.5;transition:opacity .3s}
+        #alAppGamma{opacity:1!important;transform:scale(1.18);box-shadow:0 8px 22px rgba(245,138,0,.65),0 0 0 3px rgba(245,138,0,.3);animation:alGammaPulse 2s ease-in-out infinite;position:relative;z-index:1}
+        @keyframes alGammaPulse{0%,100%{box-shadow:0 8px 22px rgba(245,138,0,.65),0 0 0 3px rgba(245,138,0,.3)}50%{box-shadow:0 12px 30px rgba(245,138,0,.85),0 0 0 6px rgba(245,138,0,.4)}}
+        .al-installed-badge{position:absolute;top:30px;right:-30px;background:#10b981;color:#fff;padding:8px 16px;border-radius:6px;font-size:12px;font-weight:800;letter-spacing:1px;transform:rotate(8deg);box-shadow:0 8px 20px rgba(16,185,129,.4)}
+        @media (max-width:900px){
+            .al-grid{grid-template-columns:1fr;gap:48px;text-align:center}
+            .al-title{font-size:36px}
+            .al-sub{margin-left:auto;margin-right:auto;font-size:15.5px}
+            .al-bullets li{justify-content:center}
+            .al-actions{justify-content:center}
+            .al-meta{justify-content:center}
+            .al-bonus{text-align:left}
+            .al-phone{transform:rotateY(-8deg) rotateX(3deg);width:240px;height:480px;padding-top:8px}
+        }
+        @media (max-width:480px){
+            .app-launch-section{padding:60px 0}
+            .al-title{font-size:28px}
+            .al-cta-primary,.al-cta-secondary{width:100%;justify-content:center}
+            .al-phone{width:220px;height:440px}
+        }
+    </style>
 
     <!-- ============ DEMONSTRAÇÃO DA PLATAFORMA ============ -->
     <section class="platform-showcase">
@@ -774,6 +939,16 @@
                 </div>
 
                 <div class="footer-col">
+                    <h4>📲 App Oficial</h4>
+                    <ul>
+                        <li><a href="https://app.gammaquant.com.br/?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=launch-app-may26" target="_blank" rel="noopener"><strong style="color:#f58a00">Instalar App Gamma →</strong></a></li>
+                        <li><a href="https://app.gammaquant.com.br/como-instalar.html" target="_blank" rel="noopener">Como instalar</a></li>
+                        <li><a href="https://app.gammaquant.com.br/Tutorial_App_Gamma_Quant.pdf" target="_blank" rel="noopener">Tutorial em PDF</a></li>
+                        <li><a href="#app-launch">Sobre o app</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
                     <h4>Plataforma</h4>
                     <ul>
                         <li><a href="#metodo">Método</a></li>
@@ -823,6 +998,88 @@
             </div>
         </div>
     </footer>
+
+    <!-- ============ POPUP LANÇAMENTO APP (primeira visita) ============ -->
+    <div id="app-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="appPopupTitle" hidden>
+        <div class="apo-card">
+            <button type="button" class="apo-close" aria-label="Fechar" onclick="closeAppPopup()">×</button>
+            <div class="apo-icon-wrap">
+                <div class="apo-icon-glow" aria-hidden="true"></div>
+                <span class="apo-icon-letter">γ</span>
+            </div>
+            <span class="apo-tag">🟧 NOVIDADE · MAIO 2026</span>
+            <h2 id="appPopupTitle" class="apo-title">O Gamma agora cabe<br><span>na sua tela inicial.</span></h2>
+            <p class="apo-sub">Instale o App Gamma Quant em <strong>30 segundos</strong> e nunca mais perca uma live. Push 5 min antes do Sergio entrar.</p>
+            <ul class="apo-bullets">
+                <li>📊 Protocolo Gamma diário · 1 toque</li>
+                <li>📘 Apostila offline · 28 páginas</li>
+                <li>🚨 Aviso da live 5 min antes</li>
+                <li>📱 Android · iPhone · PC · Mac</li>
+            </ul>
+            <div class="apo-bonus">
+                🎁 <strong>Bônus até 11/05:</strong> Aula Mestre Sergio Ferro (R$ 297) liberada DENTRO do app.
+            </div>
+            <a href="https://app.gammaquant.com.br/?utm_source=site&amp;utm_medium=popup&amp;utm_campaign=launch-app-may26"
+               class="apo-cta" target="_blank" rel="noopener" onclick="trackAppPopupClick()">
+               Instalar agora · 30 segundos →
+            </a>
+            <button type="button" class="apo-skip" onclick="closeAppPopup()">Continuar no site</button>
+        </div>
+    </div>
+    <style>
+        #app-popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);animation:apoFadeIn .35s ease-out}
+        #app-popup-overlay[data-show="1"]{display:flex}
+        @keyframes apoFadeIn{from{opacity:0}to{opacity:1}}
+        @keyframes apoCardIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+        .apo-card{background:#0a0a0a;border:2px solid #f58a00;border-radius:14px;max-width:460px;width:100%;padding:34px 28px 26px;text-align:center;color:#fff;font-family:'Montserrat',sans-serif;position:relative;box-shadow:0 30px 80px rgba(245,138,0,.25);animation:apoCardIn .5s cubic-bezier(.2,.8,.2,1)}
+        .apo-close{position:absolute;top:10px;right:14px;background:transparent;border:0;color:#fff;font-size:28px;line-height:1;cursor:pointer;opacity:.6;transition:opacity .2s;font-weight:300}
+        .apo-close:hover{opacity:1}
+        .apo-icon-wrap{position:relative;width:84px;height:84px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:20px;box-shadow:0 12px 30px rgba(245,138,0,.45)}
+        .apo-icon-glow{position:absolute;inset:-8px;border-radius:24px;background:radial-gradient(circle,rgba(245,138,0,.4) 0%,transparent 70%);animation:apoGlow 2s ease-in-out infinite}
+        @keyframes apoGlow{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+        .apo-icon-letter{font-size:54px;font-weight:900;color:#d4a017;font-family:Georgia,serif;line-height:1;position:relative;z-index:1}
+        .apo-tag{display:inline-block;background:#f58a00;color:#000;font-size:10.5px;font-weight:800;letter-spacing:1.5px;padding:4px 12px;border-radius:4px;margin-bottom:12px}
+        .apo-title{font-size:26px;line-height:1.15;margin:0 0 12px;color:#fff;font-weight:800}
+        .apo-title span{color:#f58a00}
+        .apo-sub{font-size:14.5px;line-height:1.55;margin:0 0 18px;color:#ccc}
+        .apo-sub strong{color:#f58a00}
+        .apo-bullets{list-style:none;padding:0;margin:0 0 18px;text-align:left;background:#141414;border-radius:8px;padding:14px 18px}
+        .apo-bullets li{font-size:13px;color:#ddd;padding:4px 0;line-height:1.4}
+        .apo-bonus{background:rgba(245,138,0,.1);border-left:3px solid #f58a00;padding:11px 14px;border-radius:6px;font-size:13px;color:#f58a00;text-align:left;margin-bottom:18px;line-height:1.45}
+        .apo-bonus strong{color:#fff}
+        .apo-cta{display:block;background:linear-gradient(135deg,#f58a00,#ff9d1c);color:#000;padding:15px 22px;border-radius:9px;text-decoration:none;font-weight:800;font-size:15.5px;margin-bottom:10px;transition:transform .15s,box-shadow .15s;box-shadow:0 8px 22px rgba(245,138,0,.4)}
+        .apo-cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(245,138,0,.55)}
+        .apo-skip{background:transparent;border:0;color:#777;font-size:12.5px;cursor:pointer;font-family:inherit;padding:6px;transition:color .2s}
+        .apo-skip:hover{color:#aaa}
+        @media (max-width:480px){
+            .apo-card{padding:28px 20px 20px}
+            .apo-title{font-size:22px}
+            .apo-sub{font-size:13.5px}
+        }
+    </style>
+    <script>
+        (function(){
+            if (document.cookie.indexOf('appPopupShown=1') !== -1) return;
+            var overlay = document.getElementById('app-popup-overlay');
+            if (!overlay) return;
+            setTimeout(function(){
+                overlay.removeAttribute('hidden');
+                overlay.setAttribute('data-show','1');
+                if(typeof gtag==='function'){gtag('event','app_popup_shown',{campaign:'launch-app-may26'});}
+                if(typeof fbq==='function'){fbq('trackCustom','AppPopupShown',{campaign:'launch-app-may26'});}
+            }, 8000);
+        })();
+        function closeAppPopup(){
+            var overlay = document.getElementById('app-popup-overlay');
+            if (overlay){overlay.removeAttribute('data-show');overlay.setAttribute('hidden','');}
+            document.cookie='appPopupShown=1;max-age=2592000;path=/';
+        }
+        function trackAppPopupClick(){
+            if(typeof gtag==='function'){gtag('event','app_popup_clicked',{campaign:'launch-app-may26'});}
+            if(typeof fbq==='function'){fbq('trackCustom','AppPopupClicked',{campaign:'launch-app-may26'});}
+            closeAppPopup();
+        }
+    </script>
 
     <!-- ============ WHATSAPP FLUTUANTE ============ -->
     <a href="https://wa.me/5521990089490?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20Plataforma%20Gamma%20Quant" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Atendimento Gamma Quant">
